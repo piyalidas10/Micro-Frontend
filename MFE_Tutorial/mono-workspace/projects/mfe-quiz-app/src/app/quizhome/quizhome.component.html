@@ -1,0 +1,31 @@
+  
+  <!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div class="row">
+      <div class="col-lg-9 col-md-8 col-sm-7">
+          <h4>Flip Flop Quiz</h4>
+          <p>Click on the card</p>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-5">
+          <app-quizresult [isResultSubmitted]="isResultSubmitted"></app-quizresult>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 flip-card-wrapper quiz{{i}}" *ngFor="let quiz of quizLists; let i = index;">
+      <div class="flip-card">
+          <div class="flip-card-front" (click)="expandSection(i)">
+            <div class="num">{{i+1}}</div>
+          </div>
+          <div class="flip-card-back" (click)="closeSection(i)">
+              <ng-template quizcontainer></ng-template>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group text-right">
+    <button type="button" class="btn btn-success" (click)="submitQuiz()" [disabled]="isSubmitBtnClicked">Submit Quiz</button>
+  </div>
+</div>
+  
+  
+

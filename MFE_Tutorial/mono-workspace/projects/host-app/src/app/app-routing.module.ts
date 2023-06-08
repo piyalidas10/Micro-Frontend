@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 const MFE_APP_URL = "http://localhost:4300/remoteEntry.js";
+const MFE_QUIZ_APP_URL = "http://localhost:4400/remoteEntry.js";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -16,6 +17,16 @@ const routes: Routes = [
         remoteName: "mfeApp",
         exposedModule: "./TodoListModule"
       }).then(m => m.TodoListModule).catch(err => console.log(err));
+    }
+  },
+  {
+    path: 'quiz',
+    loadChildren: () => {
+      return loadRemoteModule({
+        remoteEntry: MFE_QUIZ_APP_URL,
+        remoteName: "mfeQuizApp",
+        exposedModule: "./QuizhomeModule"
+      }).then(m => m.QuizhomeModule).catch(err => console.log(err));
     }
   }
 ];

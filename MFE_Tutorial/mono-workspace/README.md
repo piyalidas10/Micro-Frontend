@@ -8,8 +8,10 @@ https://www.youtube.com/watch?v=wVKR-UEEew8&list=PL1UWPWOy5UlfLWfSstHBW-iVu6RWJt
 
 ### Run application
 ```
+cd mono-workspace
 ng serve host-app --port=4200
 ng serve mfe-app --port=4300
+ng serve mfe-quiz-app --port=4400
 ```
 
 ### create micro-front end application
@@ -21,9 +23,11 @@ npx @angular/cli@12 new mono-workspace --createApplication=false
 cd mono-workspace
 ng g application host-app --routing --style=scss
 ng g application mfe-app --routing --style=scss
+ng g application mfe-quiz-app --routing --style=scss
 npm i webpack webpack-cli --save-dev
 ng add @angular-architects/module-federation@12 --project host-app --port 4200
 ng add @angular-architects/module-federation@12 --project mfe-app --port 4300
+ng add @angular-architects/module-federation@12 --project mfe-quiz-app --port 4400
 ```
 
 these both projects share same node_modules of mono-workspace
